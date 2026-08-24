@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuraAuth • Modern Login Experience</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Ambient background lighting effects -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <!-- Top Navigation Bar -->
+  <header class="top-nav">
+    <div class="brand">
+      <div class="brand-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+      </div>
+      <span class="brand-text">Aura<strong>Auth</strong></span>
+    </div>
+    <div class="nav-actions">
+      <button id="themeToggle" class="icon-btn" aria-label="Toggle dark/light theme" title="Toggle theme">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-wrapper">
+    <!-- Auth Card -->
+    <div class="auth-card" id="authCard">
+      <!-- Card Header -->
+      <div class="card-header">
+        <div class="logo-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <h1 class="card-title" id="cardTitle">Welcome back</h1>
+        <p class="card-subtitle" id="cardSubtitle">Sign in to your account to continue</p>
+      </div>
+
+      <!-- Quick Demo Access Banner -->
+      <div class="demo-pills-wrapper">
+        <span class="demo-label">Quick Demo:</span>
+        <button type="button" class="demo-pill" id="quickDemoAdmin">⚡ Admin Demo</button>
+        <button type="button" class="demo-pill" id="quickDemoUser">✨ User Demo</button>
+      </div>
+
+      <!-- Tab Switcher -->
+      <div class="tab-switcher" role="tablist">
+        <button class="tab-btn active" id="tabSignIn" role="tab" aria-selected="true">Sign In</button>
+        <button class="tab-btn" id="tabSignUp" role="tab" aria-selected="false">Create Account</button>
+        <div class="tab-indicator" id="tabIndicator"></div>
+      </div>
+
+      <!-- Social Logins -->
+      <div class="social-login-group">
+        <button type="button" class="social-btn google-btn" id="googleLogin" aria-label="Sign in with Google">
+          <svg width="18" height="18" viewBox="0 0 24 24">
+            <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.7l3.1-3.1C17.3 1.8 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.9C6.2 7.4 8.8 5 12 5z"/>
+            <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.6h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.9z"/>
+            <path fill="#FBBC05" d="M5.3 14.7c-.2-.7-.4-1.5-.4-2.4s.2-1.7.4-2.4L1.6 7c-.8 1.6-1.3 3.4-1.3 5.3s.5 3.7 1.3 5.3l3.7-2.9z"/>
+            <path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.2 0-5.8-2.4-6.7-5.3L1.6 15.9C3.5 19.7 7.4 23 12 23z"/>
+          </svg>
+          <span>Google</span>
+        </button>
+
+        <button type="button" class="social-btn github-btn" id="githubLogin" aria-label="Sign in with GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+          </svg>
+          <span>GitHub</span>
+        </button>
+
+        <button type="button" class="social-btn apple-btn" id="appleLogin" aria-label="Sign in with Apple">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.63-.76 1.05-1.82.93-2.87-.91.04-2 .6-2.63 1.34-.56.64-1.04 1.71-.91 2.74 1.02.08 2.06-.51 2.61-1.21z"/>
+          </svg>
+          <span>Apple</span>
+        </button>
+      </div>
+
+      <!-- Divider -->
+      <div class="divider">
+        <span>or with email</span>
+      </div>
+
+      <!-- Forms Container -->
+      <div class="forms-slider">
+        <!-- Sign In Form -->
+        <form id="signInForm" class="auth-form active" novalidate>
+          <!-- Email Input -->
+          <div class="input-group">
+            <label for="signInEmail">Email Address</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <input type="email" id="signInEmail" placeholder="you@company.com" autocomplete="email" required>
+            </div>
+            <span class="error-msg" id="signInEmailError"></span>
+          </div>
+
+          <!-- Password Input -->
+          <div class="input-group">
+            <div class="label-row">
+              <label for="signInPassword">Password</label>
+              <button type="button" class="forgot-link" id="forgotPasswordBtn">Forgot?</button>
+            </div>
+            <div class="input-wrapper">
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <input type="password" id="signInPassword" placeholder="••••••••" autocomplete="current-password" required>
+              <button type="button" class="password-toggle" id="signInPasswordToggle" aria-label="Toggle password visibility">
+                <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </button>
+            </div>
+            <span class="error-msg" id="signInPasswordError"></span>
+          </div>
+
+          <!-- Options Row -->
+          <div class="options-row">
+            <label class="custom-checkbox">
+              <input type="checkbox" id="rememberMe" checked>
+              <span class="checkbox-box"></span>
+              <span class="checkbox-label">Keep me signed in</span>
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="submit-btn" id="signInSubmitBtn">
+            <span class="btn-text">Sign In to Dashboard</span>
+            <div class="spinner" aria-hidden="true"></div>
+            <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form id="signUpForm" class="auth-form" novalidate>
+          <!-- Full Name -->
+          <div class="input-group">
+            <label for="signUpName">Full Name</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <input type="text" id="signUpName" placeholder="Alex Morgan" autocomplete="name" required>
+            </div>
+            <span class="error-msg" id="signUpNameError"></span>
+          </div>
+
+          <!-- Email Input -->
+          <div class="input-group">
+            <label for="signUpEmail">Work Email</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <input type="email" id="signUpEmail" placeholder="alex@company.com" autocomplete="email" required>
+            </div>
+            <span class="error-msg" id="signUpEmailError"></span>
+          </div>
+
+          <!-- Password Input -->
+          <div class="input-group">
+            <label for="signUpPassword">Create Password</label>
+            <div class="input-wrapper">
+              <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <input type="password" id="signUpPassword" placeholder="Min. 8 characters" autocomplete="new-password" required>
+              <button type="button" class="password-toggle" id="signUpPasswordToggle" aria-label="Toggle password visibility">
+                <svg class="eye-open" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <svg class="eye-closed" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                  <line x1="1" y1="1" x2="23" y2="23"></line>
+                </svg>
+              </button>
+            </div>
+            <span class="error-msg" id="signUpPasswordError"></span>
+
+            <!-- Password Strength Meter -->
+            <div class="strength-meter-container" id="strengthContainer">
+              <div class="strength-bars">
+                <div class="bar" id="bar1"></div>
+                <div class="bar" id="bar2"></div>
+                <div class="bar" id="bar3"></div>
+                <div class="bar" id="bar4"></div>
+              </div>
+              <div class="strength-text-row">
+                <span class="strength-label">Password Strength:</span>
+                <span class="strength-value" id="strengthValue">Too weak</span>
+              </div>
+              <!-- Checklist -->
+              <ul class="strength-checklist">
+                <li id="ruleLength"><span>•</span> At least 8 characters</li>
+                <li id="ruleNumber"><span>•</span> At least 1 number (0-9)</li>
+                <li id="ruleUpper"><span>•</span> Uppercase & lowercase letter</li>
+                <li id="ruleSpecial"><span>•</span> Special character (!@#$%^&*)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Terms Checkbox -->
+          <div class="options-row">
+            <label class="custom-checkbox">
+              <input type="checkbox" id="agreeTerms" required>
+              <span class="checkbox-box"></span>
+              <span class="checkbox-label">I agree to the <a href="#" class="inline-link" onclick="event.preventDefault(); window.showToast('Terms & Privacy opened', 'info')">Terms of Service</a> & <a href="#" class="inline-link" onclick="event.preventDefault(); window.showToast('Privacy Policy opened', 'info')">Privacy Policy</a></span>
+            </label>
+          </div>
+          <span class="error-msg" id="signUpTermsError"></span>
+
+          <!-- Submit Button -->
+          <button type="submit" class="submit-btn" id="signUpSubmitBtn">
+            <span class="btn-text">Create Free Account</span>
+            <div class="spinner" aria-hidden="true"></div>
+            <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+      <!-- Card Footer -->
+      <div class="card-footer">
+        <p class="security-note">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span>256-bit TLS encrypted • ISO 27001 Certified</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Logged-in Simulator Screen (Shown after successful auth) -->
+    <div class="dashboard-card hidden" id="dashboardCard">
+      <div class="success-icon-badge">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+      </div>
+      <h2>Authentication Successful!</h2>
+      <p class="dash-subtitle">Welcome back to your workspace</p>
+      
+      <div class="user-profile-box">
+        <div class="avatar" id="dashAvatar">AD</div>
+        <div class="user-info">
+          <h4 id="dashUserName">Alex Morgan</h4>
+          <span id="dashUserEmail">alex@company.com</span>
+          <div class="status-tag"><span class="pulse-dot"></span> Active Session</div>
+        </div>
+      </div>
+
+      <div class="dash-stats">
+        <div class="stat-item">
+          <span class="stat-num">12</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">99.9%</span>
+          <span class="stat-label">Uptime</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">Pro</span>
+          <span class="stat-label">Plan</span>
+        </div>
+      </div>
+
+      <button type="button" class="logout-btn" id="logoutBtn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </svg>
+        <span>Sign Out</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- Forgot Password Modal -->
+  <div class="modal-backdrop hidden" id="forgotModal">
+    <div class="modal-card">
+      <button class="close-btn" id="closeForgotModal" aria-label="Close modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="modal-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>
+        </svg>
+      </div>
+      <h3>Reset Your Password</h3>
+      <p class="modal-desc">Enter your email and we'll send you an instant reset link.</p>
+      
+      <form id="forgotForm" novalidate>
+        <div class="input-group">
+          <label for="forgotEmail">Email Address</label>
+          <div class="input-wrapper">
+            <svg class="input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+              <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <input type="email" id="forgotEmail" placeholder="you@company.com" required>
+          </div>
+          <span class="error-msg" id="forgotEmailError"></span>
+        </div>
+        
+        <button type="submit" class="submit-btn" id="forgotSubmitBtn">
+          <span class="btn-text">Send Password Reset Link</span>
+          <div class="spinner" aria-hidden="true"></div>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
